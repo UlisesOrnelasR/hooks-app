@@ -1,6 +1,4 @@
-import { LoadingQuote } from "./LoadingQuote";
-import { Quote } from "./Quote";
-
+import { LoadingQuote, Quote } from "./";
 import { useCounter, useFetch } from "../hooks";
 
 export const MultipleCustomHooks = () => {
