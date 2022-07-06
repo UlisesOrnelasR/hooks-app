@@ -9,11 +9,14 @@ export const MultipleCustomHooks = () => {
     <>
       <div>BreakingBad Quotes</div>
       <hr />
-      <div className="alert alert-info text-center">Loading...</div>
-      <blockquote className="blockquote text-end">
-        <p className="mb-2">Hola mundo</p>
-        <footer className="blockquote-footer">Ulises Ornelas</footer>
-      </blockquote>
+      {isLoading ? (
+        <div className="alert alert-info text-center">Loading...</div>
+      ) : (
+        <blockquote className="blockquote text-end">
+          <p className="mb-2">Hola mundo</p>
+          <footer className="blockquote-footer">Ulises Ornelas</footer>
+        </blockquote>
+      )}
     </>
   );
 };
