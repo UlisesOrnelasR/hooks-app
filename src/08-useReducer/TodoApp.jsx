@@ -1,47 +1,22 @@
-import { useEffect, useReducer } from "react";
 import { TodoAdd } from "./TodoAdd";
 import { TodoList } from "./TodoList";
-import { todoReducer } from "./todoReducer";
-
-const initialState = [];
-
-const init = () => {
-  return JSON.parse(localStorage.getItem("todos")) || [];
-};
+import { useTodos } from "./../hooks";
 
 export const TodoApp = () => {
-  const [todos, dispatch] = useReducer(todoReducer, initialState, init);
-
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
-
-  const handleNewTodo = (todo) => {
-    const action = {
-      type: "[TODO] Add Todo",
-      payload: todo,
-    };
-    dispatch(action);
-  };
-
-  const handleDeleteTodo = (id) => {
-    dispatch({
-      type: "[TODO] Remove Todo",
-      payload: id,
-    });
-  };
-
-  const handleToggleTodo = (id) => {
-    dispatch({
-      type: "[TODO] ToggleTodo Todo",
-      payload: id,
-    });
-  };
+  const {
+    todos,
+    TodosCount,
+    pendingTodosCount,
+    handleNewTodo,
+    handleDeleteTodo,
+    handleToggleTodo,
+  } = useTodos();
 
   return (
     <>
       <h1>
-        TodoApp 10, <small>pendientes: 2</small>
+        TodoApp: {TodosCount()}
+        <small> pendientes: {pendingTodosCount()}</small>
       </h1>
       <hr />
 
