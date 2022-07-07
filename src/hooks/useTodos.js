@@ -35,19 +35,13 @@ export const useTodos = () => {
       payload: id,
     });
   };
-  const TodosCount = () => {
-    return todos.length
-  }
-  const pendingTodosCount = () => {
-    return todos.filter((todo) => !todo.done).length
-  }
-    
+ 
   return {
     todos,
     handleNewTodo,
     handleDeleteTodo,
     handleToggleTodo,
-    TodosCount,
-    pendingTodosCount,
+    TodosCount: todos.length,
+    pendingTodosCount: todos.filter((todo) => !todo.done).length,
   };
 };
