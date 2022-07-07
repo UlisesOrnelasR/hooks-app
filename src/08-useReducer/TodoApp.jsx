@@ -10,7 +10,7 @@ const initialState = [
   },
   {
     id: new Date().getTime() * 3,
-    description: "Recolectar la piedra del alma",
+    description: "Recolectar la piedra del tiempo",
     done: false,
   },
 ];
@@ -27,17 +27,7 @@ export const TodoApp = () => {
 
       <div className="row">
         <div className="col-7">
-          <ul className="list-group">
-            {todos.map((todo) => (
-              <li
-                key={todo.id}
-                className="list-group-item d-flex justify-content-between"
-              >
-                <span className="align-self-center">Item 1</span>
-                <button className="btn btn-danger">Borrar</button>
-              </li>
-            ))}
-          </ul>
+          <TodoList todos={todos} />
         </div>
         <div className="col-5">
           <h4>Agregar TODO</h4>
