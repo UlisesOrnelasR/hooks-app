@@ -3,8 +3,8 @@
 export const todoReducer = (initialState=[],action) => {
   
     switch (action.type) {
-        case 'ABC':
-            throw new console.error();
+        case '[TODO] Add Todo':
+            return [...initialState, action.payload]
             
     
         default:
